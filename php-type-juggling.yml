@@ -1,0 +1,7 @@
+rules:
+  - id: php.security.type-juggling
+    languages:
+      - php
+    message: The '==' operator is not type safe Use '===' instead!
+    pattern: $X == $X
+    severity: ERROR

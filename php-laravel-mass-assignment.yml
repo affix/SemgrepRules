@@ -1,0 +1,10 @@
+rules:
+  - id: Laravel potential mass assignment
+    languages:
+      - php
+    message: |
+      by passing a request object into update*(updateUser for example) we
+      may have a mass assignment vulnerability
+    patterns:
+      - pattern-regex: update.*\(\$request->get\(
+    severity: ERROR
