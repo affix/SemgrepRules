@@ -3,8 +3,7 @@ rules:
     languages:
       - php
     message: |
-      by passing a request object into update*(updateUser for example) we
-      may have a mass assignment vulnerability
+      by passing the get parameter $2 directly into update$1, there is potential for mass assignment
     patterns:
-      - pattern-regex: update.*\(\$request->get\(
+      - pattern-regex: update(.*)\(\$request->get\(\'(.*)\'
     severity: ERROR
