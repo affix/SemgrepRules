@@ -3,7 +3,7 @@ rules:
     languages:
       - php
     message: |
-      by passing the get parameter $2 directly into update$1, there is potential for mass assignment
+      by passing the request parameter $2 directly into update$1, there is potential for mass assignment
     patterns:
       - pattern-regex: update(.*)\(\$request->get\(\'(.*)\'
     severity: ERROR
