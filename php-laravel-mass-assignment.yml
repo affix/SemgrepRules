@@ -5,5 +5,5 @@ rules:
     message: |
       by passing the request parameter $2 directly into update$1, there is potential for mass assignment
     patterns:
-      - pattern-regex: update(.*)\(\$request->get\(\'(.*)\'
+      - pattern-regex: update(.*)\(\$.*->get\(\'(.*)\'
     severity: ERROR
