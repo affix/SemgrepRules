@@ -1,0 +1,20 @@
+rules:
+  - id: php-ssrf
+    patterns:
+      - pattern-either:
+        - pattern-regex: file_get_contents\(.*?\$_(GET|POST|REQUEST)\[.*?\]
+        - pattern-regex: curl_setopt\(.*?, CURLOPT_URL,.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: fopen\(.*?, 'r', false,.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: copy\(.*?\$_(GET|POST|REQUEST)\[.*?\],.*?\)
+        - pattern-regex: readfile\(.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: passthru\(.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: shell_exec\(.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: system\(.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: exec\(.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: popen\(.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: proc_open\(.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+        - pattern-regex: imap_open\(.*?\$_(GET|POST|REQUEST)\[.*?\]\)
+    message: Potential SSRF vulnerability found
+    languages:
+      - php
+    severity: ERROR
