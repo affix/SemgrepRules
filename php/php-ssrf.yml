@@ -1,5 +1,5 @@
 rules:
-  - id: php-ssrf
+  - id: security.ssrf
     patterns:
       - pattern-either:
         - pattern-regex: file_get_contents\(.*?\$_(GET|POST|REQUEST)\[.*?\]
