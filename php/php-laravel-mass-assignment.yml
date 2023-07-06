@@ -1,5 +1,5 @@
 rules:
-  - id: Laravel potential mass assignment
+  - id: laravel.mass-assignment
     languages:
       - php
     message: |

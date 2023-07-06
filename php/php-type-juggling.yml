@@ -1,5 +1,5 @@
 rules:
-  - id: php.security.type-juggling
+  - id: security.type-juggling
     languages:
       - php
     message: The '==' operator is not type safe Use '===' instead!
