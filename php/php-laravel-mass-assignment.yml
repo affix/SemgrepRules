@@ -5,5 +5,21 @@ rules:
     message: |
       by passing the request parameter $2 directly into update$1, there is potential for mass assignment
     patterns:
+    - pattern-either:
       - pattern-regex: update(.*)\(\$.*->get\(\'(.*)\'
+      - pattern-regex: protected(.*)\$fillable(.*)=(.*)\['*']
     severity: ERROR
+    metadata:
+      category: security
+      cwe:
+        - 'CWE-915 Improperly Controlled Modification of Dynamically-Determined Object Attributes'
+      owasp:
+        - 'API:2019 - Mass assignment'
+      technology:
+        - laravel
+        - php
+      references:
+        - https://laracasts.com/series/laravel-8-from-scratch/episodes/22
+      likelihood: HIGH
+      impact: HIGH
+      confidence: MEDIUM
